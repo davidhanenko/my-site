@@ -1,26 +1,96 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Design tokens ported from the old styled-components GlobalStyles. */
+@theme {
+  --color-dark: #010410;
+  --color-dark-op: #010410e5;
+  --color-dark2: #343230;
+  --color-dark3: #0f172a;
+  --color-dark4: #1e293b;
+  --color-muted: #7a7979;
+  --color-light-gray: #bcbcbc;
+  --color-light: #f8f1f1;
+  --color-off-white: #f5f5f5;
+  --color-text-dark: #1e1a1a;
+  --color-teal: #06b6d4;
+  --color-teal1: #115e59;
+  --color-teal2: #0d9488;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-sans: var(--font-nunito);
+  --font-display: var(--font-montserrat);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --spacing-header: 5rem;
+  --container-site: 100rem;
+
+  --animate-header-in: header-in 0.5s 0.4s forwards;
+  --animate-greet: greet 0.8s forwards;
+  --animate-greet-sm: greet-sm 0.8s forwards;
+  --animate-appear: appear 2s infinite;
+  --animate-fade-in: fade-in 0.8s 4.5s forwards;
+
+  @keyframes fade-in {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes header-in {
+    0% {
+      top: -1.25rem;
+      opacity: 0;
+    }
+    100% {
+      top: 0;
+      opacity: 0.97;
+    }
+  }
+
+  @keyframes greet {
+    0% {
+      bottom: 20vh;
+      opacity: 0;
+    }
+    100% {
+      bottom: 25vh;
+      opacity: 1;
+    }
+  }
+
+  @keyframes greet-sm {
+    0% {
+      bottom: 40vh;
+      opacity: 0;
+    }
+    100% {
+      bottom: 45vh;
+      opacity: 1;
+    }
+  }
+
+  @keyframes appear {
+    0%,
+    15% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    90%,
+    100% {
+      opacity: 0;
+      transform: scale(0);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  html {
+    background: var(--color-dark);
+  }
+
+  body {
+    @apply bg-dark font-sans text-light overflow-x-hidden select-none;
+  }
 }

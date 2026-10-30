@@ -1,0 +1,234 @@
+/*
+ * Intro name animation, ported 1:1 from the old styled-components version.
+ * Timeline: first/last name slide apart (1s → 4s), then the whole name
+ * moves up (starts at --name-delay). `.ended` freezes the final state.
+ * Sizes converted from the old 62.5% root font-size (old rem × 0.625).
+ */
+
+.container {
+  --name-delay: 3s;
+
+  display: flex;
+  flex-flow: row wrap;
+  min-width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  transform: translateX(-7.5%);
+  font-size: 9vw;
+  color: var(--color-teal2);
+  font-weight: 600;
+  animation: name-x 1s linear var(--name-delay) forwards;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    font-size: 6.875rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    font-size: 2.3125rem;
+  }
+}
+
+@media (max-width: 385px) {
+  .container {
+    font-size: 1.875rem;
+  }
+}
+
+.name {
+  font-family: var(--font-display);
+  /* Montserrat is wider than the system sans-serif the old site fell back to — keep one line */
+  white-space: nowrap;
+  transform: translateY(0%);
+  animation: name-y 1s linear var(--name-delay) forwards;
+}
+
+.ended .name {
+  transform: translateY(-25vh);
+  animation: none;
+}
+
+@media (max-width: 600px) {
+  .name {
+    animation-name: name-y-sm;
+  }
+
+  .ended .name {
+    transform: translateY(-30vh);
+  }
+}
+
+.firstName {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  transform: translateX(116%);
+  animation: first-left 3s 1s forwards;
+}
+
+@media (max-width: 768px) {
+  .firstName {
+    transform: translateX(120%);
+  }
+}
+
+@media (max-width: 600px) {
+  .firstName {
+    transform: translateX(124%);
+  }
+}
+
+@media (max-width: 385px) {
+  .firstName {
+    transform: translateX(126%);
+  }
+}
+
+.firstNameRest {
+  animation: fade-in-l 1.5s cubic-bezier(1, 0.06, 0.4, 1.16);
+}
+
+.lastName {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.625rem;
+  z-index: 2;
+  animation: last-r 3s 1s forwards;
+}
+
+.lastNameRest {
+  animation: fade-in-r 3s cubic-bezier(1, 0.06, 0.4, 1.16);
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  height: 110%;
+  width: 100%;
+  background: var(--color-dark);
+  z-index: 2;
+  transform: translateX(26%);
+  transform-origin: right;
+  animation: last-r-rest 3s 1.5s forwards;
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    transform: translateX(29%);
+    animation-name: last-r-rest-md;
+  }
+}
+
+.ended .overlay {
+  display: none;
+  animation: none;
+}
+
+@keyframes name-x {
+  0% {
+    transform: translateX(-7.5%);
+  }
+  100% {
+    transform: translateX(-20%);
+  }
+}
+
+@keyframes name-y {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-25vh);
+  }
+}
+
+@keyframes name-y-sm {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-30vh);
+  }
+}
+
+@keyframes first-left {
+  0% {
+    transform: translateX(116%);
+  }
+  100% {
+    transform: translateX(20%);
+  }
+}
+
+@keyframes last-r {
+  0% {
+    transform: translate(0%);
+    background: transparent;
+  }
+  5% {
+    background: var(--color-dark);
+  }
+  100% {
+    transform: translate(15%);
+    background: var(--color-light);
+  }
+}
+
+@keyframes last-r-rest {
+  0% {
+    transform: translateX(26%);
+    height: 110%;
+  }
+  99% {
+    transform: translate(150%);
+    height: 110%;
+  }
+  100% {
+    transform: translate(150%);
+  }
+}
+
+@keyframes last-r-rest-md {
+  0% {
+    transform: translateX(29%);
+    height: 110%;
+  }
+  99% {
+    transform: translate(150%);
+    height: 110%;
+  }
+  100% {
+    transform: translate(150%);
+  }
+}
+
+@keyframes fade-in-l {
+  0%,
+  70% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-r {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  50% {
+    visibility: hidden;
+    opacity: 1;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
