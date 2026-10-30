@@ -12,7 +12,7 @@ const links = [
 
 export function MediaLinks({ className }: { className?: string }) {
   return (
-    <ul className={clsx("flex items-center gap-3 text-[1.875rem]", className)}>
+    <ul className={clsx("flex items-center gap-3 text-3xl", className)}>
       {links.map(({ label, href, Icon }) => (
         <li key={label}>
           <a
@@ -21,7 +21,7 @@ export function MediaLinks({ className }: { className?: string }) {
             rel="noopener noreferrer"
             aria-label={label}
             data-tooltip={label}
-            className="group relative block after:absolute after:top-[1.875rem] after:right-[1.875rem] after:hidden after:bg-muted after:px-2.5 after:py-1 after:text-[0.8125rem] after:text-light after:content-[attr(data-tooltip)] hover:after:block pointer-coarse:after:hidden"
+            className="group relative block after:absolute after:top-7.5 after:right-7.5 after:hidden after:bg-muted after:px-2.5 after:py-1 after:text-xs after:text-light after:content-[attr(data-tooltip)] hover:after:block pointer-coarse:after:hidden"
           >
             <Icon className="my-1 p-0.5 text-teal2 transition-all duration-350 group-hover:scale-120 group-hover:text-light group-active:scale-107" />
           </a>

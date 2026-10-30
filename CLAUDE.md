@@ -21,14 +21,15 @@ form (Server Action + email provider). Project content as MDX/TS in the repo.
 ## Stack & layout
 Next 16 App Router, React 19, TypeScript, Tailwind v4, pnpm. Path alias `@/*` → repo root.
 - `content/` — all site copy and media URLs (`site.ts`). Edit content here, not in components.
-- `components/<area>/` — UI; client components only where they need state/effects/browser APIs.
+- `app/(<page>)/` or `app/<page>/` — each page keeps its own UI in a co-located `components/`; the home page sits in the `(home)` route group.
+- `app/components/` — shared UI and anything belonging to the root layout (header, footer, media links).
+- Client components only where they need state/effects/browser APIs.
 - `lib/animation.tsx` — context for "intro name animation finished"; header, greeting and bg wait on it.
 - `app/globals.css` — Tailwind entry + `@theme` design tokens (colors, fonts, simple keyframes/animations).
 
 ## Conventions
 - Code style follows the scaffold: double quotes, semicolons, named function components.
-- Styling: Tailwind utilities by default. Choreographed multi-step keyframes go in a co-located
-  `*.module.css` (see `components/home/name/Name.module.css`) rather than being forced into utilities.
+- Styling: Tailwind utilities by default.
 - Media: images stay on the old Cloudinary account (`res.cloudinary.com/ddqehibx0`, allowed in
   `next.config.ts`). If URLs start failing, download into `public/` and update `content/`.
 

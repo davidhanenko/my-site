@@ -1,8 +1,24 @@
 // Site content. Lives in the repo instead of a CMS — edit here and redeploy.
 
+import type { IconType } from "react-icons";
+import {
+  SiCss,
+  SiExpress,
+  SiGit,
+  SiHtml5,
+  SiJavascript,
+  SiMongodb,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiNpm,
+  SiReact,
+  SiTypescript,
+  SiYarn,
+} from "react-icons/si";
+
 export type TechLogo = {
   title: string;
-  src: string;
+  Icon: IconType;
 };
 
 export const site = {
@@ -15,17 +31,17 @@ export const site = {
     github: "https://github.com/davidhanenko",
   },
   techLogos: [
-    { title: "JavaScript", src: "https://res.cloudinary.com/ddqehibx0/image/upload/v1652319755/Portfolio/js_7fd610512f.png" },
-    { title: "HTML", src: "https://res.cloudinary.com/ddqehibx0/image/upload/v1652319755/Portfolio/html_5a483f6f62.png" },
-    { title: "CSS", src: "https://res.cloudinary.com/ddqehibx0/image/upload/v1652319755/Portfolio/css_1859a35a1b.png" },
-    { title: "Node.js", src: "https://res.cloudinary.com/ddqehibx0/image/upload/v1652319756/Portfolio/node_10bca750b1.png" },
-    { title: "Yarn", src: "https://res.cloudinary.com/ddqehibx0/image/upload/v1652554958/Portfolio/yarn_ffd58886a4.png" },
-    { title: "React", src: "https://res.cloudinary.com/ddqehibx0/image/upload/v1652319757/Portfolio/react_0f1889cb67.png" },
-    { title: "npm", src: "https://res.cloudinary.com/ddqehibx0/image/upload/v1652319757/Portfolio/npm_ad6cb30457.png" },
-    { title: "Express", src: "https://res.cloudinary.com/ddqehibx0/image/upload/v1652319755/Portfolio/express_8a0db210e7.png" },
-    { title: "Git", src: "https://res.cloudinary.com/ddqehibx0/image/upload/v1652319755/Portfolio/git_3f4daa655f.png" },
-    { title: "Next.js", src: "https://res.cloudinary.com/ddqehibx0/image/upload/v1652319755/Portfolio/next_631107e7ee.png" },
-    { title: "TypeScript", src: "https://res.cloudinary.com/ddqehibx0/image/upload/v1670808105/Portfolio/ts_6c7146ab1e.png" },
-    { title: "MongoDB", src: "https://res.cloudinary.com/ddqehibx0/image/upload/v1670808105/Portfolio/mongodb_aa88bc3f8f.png" },
+    { title: "JavaScript", Icon: SiJavascript },
+    { title: "HTML", Icon: SiHtml5 },
+    { title: "CSS", Icon: SiCss },
+    { title: "Node.js", Icon: SiNodedotjs },
+    { title: "Yarn", Icon: SiYarn },
+    { title: "React", Icon: SiReact },
+    { title: "npm", Icon: SiNpm },
+    { title: "Express", Icon: SiExpress },
+    { title: "Git", Icon: SiGit },
+    { title: "Next.js", Icon: SiNextdotjs },
+    { title: "TypeScript", Icon: SiTypescript },
+    { title: "MongoDB", Icon: SiMongodb },
   ] satisfies TechLogo[],
 };

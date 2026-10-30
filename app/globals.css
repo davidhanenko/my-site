@@ -22,11 +22,125 @@
   --spacing-header: 5rem;
   --container-site: 100rem;
 
-  --animate-header-in: header-in 0.5s 0.4s forwards;
-  --animate-greet: greet 0.8s forwards;
-  --animate-greet-sm: greet-sm 0.8s forwards;
-  --animate-appear: appear 2s infinite;
+  /* Intro name: first/last name slide apart (1s → 4s), the whole name moves up from 3s. */
+  --animate-name-x: name-x 1s linear 3s forwards;
+  --animate-name-y: name-y 1s linear 3s forwards;
+  --animate-name-y-sm: name-y-sm 1s linear 3s forwards;
+  --animate-first-left: first-left 3s 1s forwards;
+  --animate-last-r: last-r 3s 1s forwards;
+  --animate-last-r-rest: last-r-rest 3s 1.5s forwards;
+  --animate-last-r-rest-md: last-r-rest-md 3s 1.5s forwards;
+  --animate-fade-in-l: fade-in-l 1.5s cubic-bezier(1, 0.06, 0.4, 1.16);
+  --animate-fade-in-r: fade-in-r 3s cubic-bezier(1, 0.06, 0.4, 1.16);
+  --animate-greet: greet 0.8s ease 4s both;
+  --animate-header-in: header-in 0.5s ease 4.4s both;
   --animate-fade-in: fade-in 0.8s 4.5s forwards;
+  --animate-drift: drift 30s ease-in-out infinite;
+
+  @keyframes name-x {
+    0% {
+      transform: translateX(-7.5%);
+    }
+    100% {
+      transform: translateX(-20%);
+    }
+  }
+
+  @keyframes name-y {
+    0% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(-25vh);
+    }
+  }
+
+  @keyframes name-y-sm {
+    0% {
+      transform: translateY(0%);
+    }
+    100% {
+      transform: translateY(-30vh);
+    }
+  }
+
+  @keyframes first-left {
+    0% {
+      transform: translateX(116%);
+    }
+    100% {
+      transform: translateX(20%);
+    }
+  }
+
+  @keyframes last-r {
+    0% {
+      transform: translate(0%);
+      background: transparent;
+    }
+    5% {
+      background: var(--color-dark);
+    }
+    100% {
+      transform: translate(15%);
+      background: var(--color-light);
+    }
+  }
+
+  @keyframes last-r-rest {
+    0% {
+      transform: translateX(26%);
+      height: 110%;
+    }
+    99% {
+      transform: translate(150%);
+      height: 110%;
+    }
+    100% {
+      transform: translate(150%);
+    }
+  }
+
+  @keyframes last-r-rest-md {
+    0% {
+      transform: translateX(29%);
+      height: 110%;
+    }
+    99% {
+      transform: translate(150%);
+      height: 110%;
+    }
+    100% {
+      transform: translate(150%);
+    }
+  }
+
+  @keyframes fade-in-l {
+    0%,
+    70% {
+      visibility: hidden;
+      opacity: 0;
+    }
+    100% {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in-r {
+    0% {
+      visibility: hidden;
+      opacity: 0;
+    }
+    50% {
+      visibility: hidden;
+      opacity: 1;
+    }
+    100% {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
 
   @keyframes fade-in {
     to {
@@ -35,52 +149,40 @@
   }
 
   @keyframes header-in {
-    0% {
-      top: -1.25rem;
+    from {
       opacity: 0;
+      transform: translateY(-20px);
     }
-    100% {
-      top: 0;
+    to {
       opacity: 0.97;
+      transform: none;
     }
   }
 
   @keyframes greet {
-    0% {
-      bottom: 20vh;
+    from {
       opacity: 0;
+      transform: translateY(5vh);
     }
-    100% {
-      bottom: 25vh;
+    to {
       opacity: 1;
+      transform: none;
     }
   }
 
-  @keyframes greet-sm {
-    0% {
-      bottom: 40vh;
-      opacity: 0;
-    }
-    100% {
-      bottom: 45vh;
-      opacity: 1;
-    }
-  }
-
-  @keyframes appear {
+  @keyframes drift {
     0%,
-    15% {
-      opacity: 0;
-      transform: scale(0);
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+      transform: translate(24px, -16px) rotate(4deg);
     }
     50% {
-      opacity: 1;
-      transform: scale(1);
+      transform: translate(-8px, -32px) rotate(-3deg);
     }
-    90%,
-    100% {
-      opacity: 0;
-      transform: scale(0);
+    75% {
+      transform: translate(-24px, -8px) rotate(2deg);
     }
   }
 }

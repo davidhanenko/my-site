@@ -3,8 +3,8 @@ import { Montserrat, Nunito } from "next/font/google";
 
 import { site } from "@/content/site";
 import { AnimationProvider } from "@/lib/animation";
-import { Header } from "@/components/header/Header";
-import { Footer } from "@/components/footer/Footer";
+import { Header } from "@/app/components/header/Header";
+import { Footer } from "@/app/components/footer/Footer";
 import "./globals.css";
 
 const nunito = Nunito({
