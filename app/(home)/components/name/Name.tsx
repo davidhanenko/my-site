@@ -28,7 +28,7 @@ export function Name() {
         )}
         onAnimationEnd={handleAnimationEnd}
       >
-        <span className="relative z-10 inline-block [transform:translateX(116%)] animate-first-left max-[768px]:[transform:translateX(120%)] max-[600px]:[transform:translateX(124%)] max-[385px]:[transform:translateX(126%)]">
+        <span className="relative z-10 inline-block [--first-from:116%] [transform:translateX(var(--first-from))] animate-first-left max-[768px]:[--first-from:120%] max-[600px]:[--first-from:124%] max-[385px]:[--first-from:126%]">
           <span>D</span>
           <span className="animate-fade-in-l">avid</span>
         </span>

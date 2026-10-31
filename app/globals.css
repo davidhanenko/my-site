@@ -22,16 +22,16 @@
   --spacing-header: 5rem;
   --container-site: 100rem;
 
-  /* Intro name: first/last name slide apart (1s → 4s), the whole name moves up from 3s. */
-  --animate-name-x: name-x 1s linear 3s forwards;
-  --animate-name-y: name-y 1s linear 3s forwards;
-  --animate-name-y-sm: name-y-sm 1s linear 3s forwards;
-  --animate-first-left: first-left 3s 1s forwards;
-  --animate-last-r: last-r 3s 1s forwards;
-  --animate-last-r-rest: last-r-rest 3s 1.5s forwards;
-  --animate-last-r-rest-md: last-r-rest-md 3s 1.5s forwards;
+  /* Intro name: first/last name slide apart (1s → 2.8s), the whole name moves up from 3s. */
+  --animate-name-x: name-x 1s ease-in-out 3s forwards;
+  --animate-name-y: name-y 1s ease-in-out 3s forwards;
+  --animate-name-y-sm: name-y-sm 1s ease-in-out 3s forwards;
+  --animate-first-left: first-left 1.8s 1s forwards;
+  --animate-last-r: last-r 1.8s 1s forwards;
+  --animate-last-r-rest: last-r-rest 1.8s 1s forwards;
+  --animate-last-r-rest-md: last-r-rest-md 1.8s 1s forwards;
   --animate-fade-in-l: fade-in-l 1.5s cubic-bezier(1, 0.06, 0.4, 1.16);
-  --animate-fade-in-r: fade-in-r 3s cubic-bezier(1, 0.06, 0.4, 1.16);
+  --animate-fade-in-r: fade-in-r 0.4s ease 1s both;
   --animate-greet: greet 0.8s ease 4s both;
   --animate-header-in: header-in 0.5s ease 4.4s both;
   --animate-fade-in: fade-in 0.8s 4.5s forwards;
@@ -66,7 +66,7 @@
 
   @keyframes first-left {
     0% {
-      transform: translateX(116%);
+      transform: translateX(var(--first-from));
     }
     100% {
       transform: translateX(20%);
@@ -93,11 +93,11 @@
       height: 110%;
     }
     99% {
-      transform: translate(150%);
+      transform: translate(100%);
       height: 110%;
     }
     100% {
-      transform: translate(150%);
+      transform: translate(100%);
     }
   }
 
@@ -107,11 +107,11 @@
       height: 110%;
     }
     99% {
-      transform: translate(150%);
+      transform: translate(100%);
       height: 110%;
     }
     100% {
-      transform: translate(150%);
+      transform: translate(100%);
     }
   }
 
@@ -128,16 +128,10 @@
   }
 
   @keyframes fade-in-r {
-    0% {
-      visibility: hidden;
+    from {
       opacity: 0;
     }
-    50% {
-      visibility: hidden;
-      opacity: 1;
-    }
-    100% {
-      visibility: visible;
+    to {
       opacity: 1;
     }
   }
