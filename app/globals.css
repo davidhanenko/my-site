@@ -33,6 +33,7 @@
   --animate-fade-in-l: fade-in-l 1.5s cubic-bezier(1, 0.06, 0.4, 1.16);
   --animate-fade-in-r: fade-in-r 0.4s ease 1s both;
   --animate-greet: greet 0.8s ease 4s both;
+  --animate-status: status-in 0.8s ease 4.6s both;
   --animate-header-in: header-in 0.5s ease 4.4s both;
   --animate-fade-in: fade-in 0.8s 4.5s forwards;
   --animate-drift: drift 30s ease-in-out infinite;
@@ -161,6 +162,15 @@
     to {
       opacity: 1;
       transform: none;
+    }
+  }
+
+  @keyframes status-in {
+    from {
+      clip-path: inset(0 100% 0 0);
+    }
+    to {
+      clip-path: inset(0);
     }
   }
 

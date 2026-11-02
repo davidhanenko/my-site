@@ -18,7 +18,7 @@ export function Name() {
 
   // [transform:...] rather than translate-*: those set the standalone property and would stack with the keyframes
   return (
-    <h1 className="mx-auto flex min-w-full flex-wrap items-center justify-center text-[9vw] font-semibold text-teal2 [transform:translateX(-7.5%)] animate-name-x max-[600px]:text-[37px] max-[385px]:text-[30px] min-[1400px]:text-[110px]">
+    <h1 className="pointer-events-none mx-auto flex min-w-full flex-wrap items-center justify-center text-[9vw] font-semibold text-teal2 [transform:translateX(-7.5%)] animate-name-x max-[600px]:text-[37px] max-[385px]:text-[30px] min-[1400px]:text-[110px]">
       <div
         className={clsx(
           "font-display whitespace-nowrap",

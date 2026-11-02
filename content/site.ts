@@ -2,8 +2,10 @@
 
 import type { IconType } from "react-icons";
 import {
+  SiClaude,
   SiCss,
   SiExpress,
+  SiFigma,
   SiGit,
   SiHtml5,
   SiJavascript,
@@ -12,7 +14,9 @@ import {
   SiNodedotjs,
   SiNpm,
   SiReact,
+  SiTailwindcss,
   SiTypescript,
+  SiVercel,
   SiYarn,
 } from "react-icons/si";
 
@@ -24,7 +28,9 @@ export type TechLogo = {
 export const site = {
   name: "David Hanenko",
   greeting:
-    "Self-taught, quick-learning FrontEnd Engineer. Experienced with the whole process of building web applications + modern frameworks.",
+    "Frontend engineer building fast, polished interfaces with React, TypeScript and Next.js.",
+  status: ["New site in progress.", "Open to frontend roles."],
+  contact: "Get in touch",
   email: "d.hanenko24@gmail.com",
   links: {
     linkedin: "https://www.linkedin.com/in/david-hanenko",
@@ -43,5 +49,9 @@ export const site = {
     { title: "Next.js", Icon: SiNextdotjs },
     { title: "TypeScript", Icon: SiTypescript },
     { title: "MongoDB", Icon: SiMongodb },
+    { title: "Tailwind CSS", Icon: SiTailwindcss },
+    { title: "Vercel", Icon: SiVercel },
+    { title: "Figma", Icon: SiFigma },
+    { title: "Claude", Icon: SiClaude },
   ] satisfies TechLogo[],
 };
