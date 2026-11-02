@@ -22,6 +22,13 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: site.name,
   description: site.greeting,
+  // placeholder stays out of search; next.config.ts sends the same rule as a header
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: { index: false, follow: false, noarchive: true },
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

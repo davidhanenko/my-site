@@ -10,7 +10,13 @@ export function Home() {
       <div className="relative mt-header flex min-h-full w-full items-center justify-center overflow-hidden px-12.5">
         <Bg logos={site.techLogos} />
         <Name />
-        <Greet text={site.greeting} status={site.status} contact={site.contact} email={site.email} />
+        <Greet
+          text={site.greeting}
+          progress={site.progress}
+          availability={site.availability}
+          contact={site.contact}
+          email={site.email}
+        />
       </div>
     </main>
   );

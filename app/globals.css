@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* Design tokens ported from the old styled-components GlobalStyles. */
 @theme {
@@ -22,6 +22,27 @@
   --spacing-header: 5rem;
   --container-site: 100rem;
 
+  /* Soft teal light behind the name and greeting, so the background isn't a flat fill. */
+  --background-image-glow:
+    radial-gradient(
+      45% 50% at 28% 30%,
+      color-mix(
+        in srgb,
+        var(--color-teal1) 45%,
+        transparent
+      ),
+      transparent 70%
+    ),
+    radial-gradient(
+      40% 45% at 80% 72%,
+      color-mix(
+        in srgb,
+        var(--color-dark4) 80%,
+        transparent
+      ),
+      transparent 70%
+    );
+
   /* Intro name: first/last name slide apart (1s → 2.8s), the whole name moves up from 3s. */
   --animate-name-x: name-x 1s ease-in-out 3s forwards;
   --animate-name-y: name-y 1s ease-in-out 3s forwards;
@@ -30,7 +51,8 @@
   --animate-last-r: last-r 1.8s 1s forwards;
   --animate-last-r-rest: last-r-rest 1.8s 1s forwards;
   --animate-last-r-rest-md: last-r-rest-md 1.8s 1s forwards;
-  --animate-fade-in-l: fade-in-l 1.5s cubic-bezier(1, 0.06, 0.4, 1.16);
+  --animate-fade-in-l: fade-in-l 1.5s
+    cubic-bezier(1, 0.06, 0.4, 1.16);
   --animate-fade-in-r: fade-in-r 0.4s ease 1s both;
   --animate-greet: greet 0.8s ease 4s both;
   --animate-status: status-in 0.8s ease 4.6s both;
@@ -197,6 +219,6 @@
   }
 
   body {
-    @apply bg-dark font-sans text-light overflow-x-hidden select-none;
+    @apply bg-dark font-sans text-light overflow-x-hidden;
   }
 }
